@@ -16,7 +16,8 @@ def books(request):
         title=request.POST.get('title')
         author=request.POST.get('author')
         price=request.POST.get('price')
-        book=Book(title=title,author=author,price=price)
+        inventory=request.POST.get('inventory')
+        book=Book(title=title,author=author,price=price,inventory=inventory)
         try:
             book.save()
             return JsonResponse(model_to_dict(books),status=201)
